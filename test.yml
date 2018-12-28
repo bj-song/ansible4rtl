@@ -1,0 +1,12 @@
+---
+- hosts: bjsong_laptop
+  remote_user: root
+  tasks:
+    - name: Create ansible user
+      user: name=ansible shell=/bin/bash
+      
+    - name: Sudo rights for ansible
+      lineinfile: dest=/etc/sudoers state=present regexp='^ansible' line='ansible ALL=(ALL) NOPASSWD:ALL'
+      
+    - name: Copy SSH key to ansible
+      authorized_key: user=ansible key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
