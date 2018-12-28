@@ -1,0 +1,8 @@
+---
+- hosts: all
+  remote_user: rtlproxy9
+  tasks:
+  - name: ping test gogogo
+    ping:
+    become: yes
+    become_user: root
