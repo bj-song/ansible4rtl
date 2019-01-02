@@ -1,1 +1,7 @@
-
+---
+- hosts: all
+  tasks:
+  - name: Print the actual user
+    shell: whoami
+    register: whoami1
+  - debug: msg={{ whoami1.stdout }}
