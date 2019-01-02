@@ -5,7 +5,7 @@
   - name: Create a login user
     user:
     - name: ansible
-      password: mscsmi
+      password: 'mscsmi'
       groups: # Empty by default, here we give it some groups
       - sudo
       state: present
