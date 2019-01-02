@@ -16,4 +16,4 @@
         regexp: "^{{ del_user_name }}"
         state: absent
         become: yes
-      become_user: root
+        become_user: root
