@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: bjsong_laptop
   tasks:
   - name: Print the actual user
     shell: whoami
