@@ -1,5 +1,5 @@
 ---
-- hosts: bjsong_laptop
+- hosts: all
   remote_user: root
   tasks:
     - name: Create ansible user
