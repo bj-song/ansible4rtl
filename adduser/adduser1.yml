@@ -12,3 +12,5 @@
       system: no             # Defaults to no
       createhome: yes        # Defaults to yes
       home: /home/ansible    # Defaults to /home/<username>
+    become: yes
+    become_user: root
