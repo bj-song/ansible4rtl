@@ -1,12 +1,12 @@
 ---
- - name: Create a login user
-     user:
-      name: ansible
-      password: mscsmi
-      groups: # Empty by default, here we give it some groups
-       - sudo
-      state: present
-      shell: /bin/bash       # Defaults to /bin/bash
-      system: no             # Defaults to no
-      createhome: yes        # Defaults to yes
-      home: /home/ansible    # Defaults to /home/<username>
+- name: Create a login user
+  user:
+  - name: ansible
+    password: mscsmi
+    groups: # Empty by default, here we give it some groups
+    - sudo
+    state: present
+    shell: /bin/bash       # Defaults to /bin/bash
+    system: no             # Defaults to no
+    createhome: yes        # Defaults to yes
+    home: /home/ansible    # Defaults to /home/<username>
