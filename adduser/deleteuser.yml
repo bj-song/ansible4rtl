@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  remote_user: ansible
+  remote_user: bjsong
   tasks:
     - name: Delete Account Force
       user: name="{{ del_user_name }}"
