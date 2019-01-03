@@ -6,4 +6,4 @@
       apt: update_cache=yes
       
 #    - name: Install libraries for RTL Agent
-#      apt: pkg={{ item }}
+#      apt: pkg="{{ item }}"
