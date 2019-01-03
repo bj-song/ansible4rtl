@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: Install aptitude
+      raw: sudo apt-get -y install aptitude
+      
