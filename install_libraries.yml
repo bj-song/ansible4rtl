@@ -1,9 +1,11 @@
 ---
 - hosts: all
-  sudo: yes
+  remote_user: bjsong
   tasks:
     - name: Update apt cache
       apt: update_cache=yes
-      
+      become: yes
+      become_user: root
+
 #    - name: Install libraries for RTL Agent
 #      apt: pkg="{{ item }}"
