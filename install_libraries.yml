@@ -5,5 +5,5 @@
     - name: Update apt cache
       apt: update_cache=yes
       
-    - name: Install libraries for RTL Agent
-      apt: pkg={{ item }}
+#    - name: Install libraries for RTL Agent
+#      apt: pkg={{ item }}
