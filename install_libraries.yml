@@ -1,0 +1,9 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: Update apt cache
+      apt: update_cache=yes
+      
+    - name: Install libraries for RTL Agent
+      apt: pkg={{ item }}
