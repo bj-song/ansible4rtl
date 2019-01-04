@@ -8,5 +8,7 @@
       become: yes
       become_user: root
 
-#    - name: Install libraries for RTL Agent
-#      apt: pkg="{{ item }}"
+    - name: Install libraries for RTL Agent
+      apt: pkg="{{ item }}"
+      become: yes
+      become_user: root
