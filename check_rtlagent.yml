@@ -3,7 +3,7 @@
   tasks:     
   
     - name: Check RTL Agent is running
-      shell: ps -ef | grep 'rtl-agent'
+      shell: ps -ef | grep './agent.sh'
       register: result1
     - debug: msg={{ result1.stdout }}
 
