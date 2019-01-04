@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:     
+  
+    - name: Check RTL Agent is running
+      shell: ps -ef | grep 'rtl-agent'
+      register: result1
+    - debug: msg={{ result1.stdout }}
+
+#    - name: Install libraries for RTL Agent
+#      apt: pkg="{{ item }}"
+#      become: yes
+#      become_user: root
