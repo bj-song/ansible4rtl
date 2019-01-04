@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
   
-  - name: Copy RTL Agent binary (.deb)
-    copy:
-    - src: "{{ file_path }}"
-      dest: /tmp
+    - name: Copy RTL Agent binary (.deb)
+      copy:
+      - src: "{{ file_path }}"
+        dest: /tmp
