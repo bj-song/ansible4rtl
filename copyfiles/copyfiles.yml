@@ -1,6 +1,0 @@
----
-- hosts: all
-  tasks:
-  - copy:
-    src: path of file
-    dest: path of file
