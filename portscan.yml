@@ -2,6 +2,6 @@
 - hosts: all
   tasks:
   - name: Scanning RTL service port(2600)
-    shell: nmap -Pn -p2600 {{ ip_address }} | awk '/report/{printf $5} /2600/{printf " %s %s\n", $1, $2}'
+    shell: nmap {{ option }} -p2600 {{ ip_address }} | awk '/report/{printf $5} /2600/{printf " %s %s\n", $1, $2}'
     register: nmap_out
   - debug: msg={{ nmap_out.stdout_lines }}
