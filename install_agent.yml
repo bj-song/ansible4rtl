@@ -1,0 +1,20 @@
+---
+- hosts: all
+  tasks:     
+  
+# kill RTL Agent and adb/sdb process
+
+    - name: Kill RTL Agent
+      shell: systemctl stop rtl-agent.service
+      become: yes
+      become_user: root
+  
+    - name: Install RTL Agent
+      shell: dpkg -i {{ deb_path }}
+      register: result1
+    - debug: msg={{ result1.stdout_lines }}
+    
+    - name: Remove .deb file
+      shell: rm {{ deb_path }}
+      register: result2
+    - debug: msg={{ result2.stdout_lines }}
