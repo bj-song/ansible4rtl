@@ -4,24 +4,24 @@
   
   - name: Edit IP address 1
     lineinfile: dest=/opt/rtl-agent/agent/configuration.properties
-        regexp='com.samsung.rtl.launch{{ '#' }}SOCKET_ADDRESS$'
-        line='com.samsung.rtl.launch{{ '#' }}SOCKET_ADDRESS={{ ip_address }}:2600'
+        regexp='com\.samsung\.rtl\.launch{{ '#' }}SOCKET_ADDRESS$'
+        line='com.samsung.rtl.launch#SOCKET_ADDRESS={{ ip_address }}:2600'
         state=present
     become: yes
     become_user: root
     
   - name: Edit IP address 2
     lineinfile: dest=/opt/rtl-agent/agent/configuration.properties
-        regexp='com.samsung.rtl.launch{{ '#' }}WEB_SOCKET_ADDRESS$'
-        line='{{ '#' }}com.samsung.rtl.launch{{ '#' }}WEB_SOCKET_ADDRESS={{ ip_address }}:8000'
+        regexp='com\.samsung\.rtl\.launch{{ '#' }}WEB_SOCKET_ADDRESS$'
+        line='#com.samsung.rtl.launch#WEB_SOCKET_ADDRESS={{ ip_address }}:8000'
         state=present
     become: yes
     become_user: root    
   
   - name: Edit SSID
     lineinfile: dest=/opt/rtl-agent/agent/configuration.properties
-        regexp='com.samsung.rtl.common{{ '#' }}WIFI_SSID$'
-        line='com.samsung.rtl.common{{ '#' }}WIFI_SSID={{ ssid }}'
+        regexp='com\.samsung\.rtl\.common{{ '#' }}WIFI_SSID$'
+        line='com.samsung.rtl.common#WIFI_SSID={{ ssid }}'
         state=present
     become: yes
     become_user: root
@@ -29,8 +29,8 @@
     
   - name: Edit PSK
     lineinfile: dest=/opt/rtl-agent/agent/configuration.properties
-        regexp='com.samsung.rtl.common{{ '#' }}WIFI_PSK$'
-        line='com.samsung.rtl.common{{ '#' }}WIFI_PSK={{ psk }}'
+        regexp='com\.samsung\.rtl\.common{{ '#' }}WIFI_PSK$'
+        line='com.samsung.rtl.common#WIFI_PSK={{ psk }}'
         state=present
     become: yes
     become_user: root
