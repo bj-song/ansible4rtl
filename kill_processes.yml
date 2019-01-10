@@ -1,5 +1,5 @@
 ---
-  host: all
+- host: all
   tasks: 
 
 # kill RTL Agent
