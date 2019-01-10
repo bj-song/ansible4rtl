@@ -1,0 +1,29 @@
+---
+  host: all
+  tasks: 
+
+# kill RTL Agent
+    - name: Kill RTL Agent
+      shell: systemctl stop rtl-agent.service
+      become: yes
+      become_user: root
+
+# kill adb/sdb process
+    - name: Get running processes
+      shell: ps -ef | grep -v grep | grep -w "adb\|sdb" | awk '{print $2}'
+      register: adbsdb_processes
+
+    - name: Kill running processes
+      shell: kill {{ item }}
+      with_items: "{{ running_processes.stdout_lines }}"
+      
+    - wait_for:
+        path: "/proc/{{ item }}/status"
+        state: absent
+      with_items: "{{ running_processes.stdout_lines }}"
+      ignore_errors: yes
+      register: killed_processes
+      
+    - name: Force kill stuck processes
+      shell: kill -9 {{ item }}
+      with_items: "{{ killed_processes.results | select('failed') | map(attribute='item') | list }}"
