@@ -30,7 +30,7 @@
   - name: Edit PSK
     lineinfile: dest=/opt/rtl-agent/agent/configuration.properties
         regexp='com.samsung.rtl.common{{ '#' }}WIFI_PSK$'
-        line='com.samsung.rtl.common{{ '#' }}WIFI_PSK={{ pk }}'
+        line='com.samsung.rtl.common{{ '#' }}WIFI_PSK={{ psk }}'
         state=present
     become: yes
     become_user: root
