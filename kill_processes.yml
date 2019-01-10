@@ -9,18 +9,18 @@
       become_user: root
 
 # kill adb/sdb process
-    - name: Get running processes
+    - name: Get adbsdb_processes
       shell: ps -ef | grep -v grep | grep -w "adb\|sdb" | awk '{print $2}'
       register: adbsdb_processes
 
-    - name: Kill running processes
+    - name: Kill adbsdb_processes
       shell: kill {{ item }}
-      with_items: "{{ running_processes.stdout_lines }}"
+      with_items: "{{ adbsdb_processes.stdout_lines }}"
       
     - wait_for:
         path: "/proc/{{ item }}/status"
         state: absent
-      with_items: "{{ running_processes.stdout_lines }}"
+      with_items: "{{ adbsdb_processes.stdout_lines }}"
       ignore_errors: yes
       register: killed_processes
       
