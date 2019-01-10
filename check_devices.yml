@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+  - name: Check state of devices
+    shell: {{ path }}/{{ type }} devices
+    register: status
+  - debug: msg={{ status.stdout_lines }}
+  
+  
+#    shell: nmap {{ option }} -p2600 {{ ip_address }} | awk '/report/{printf $5} /2600/{printf " %s %s\n", $1, $2}'
+#    register: nmap_out
+#  - debug: msg={{ nmap_out.stdout_lines }}
