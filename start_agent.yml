@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks: 
+
+    - name: Start RTL Agent
+      shell: systemctl start rtl-agent.service
+      become: yes
+      become_user: root
