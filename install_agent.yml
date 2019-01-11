@@ -4,7 +4,7 @@
 
     - name: Install RTL Agent
       apt:
-        deb: {{ deb_path }}
+        deb: "{{ deb_path }}"
       become: yes
       become_user: root
     
